@@ -37,6 +37,6 @@
   "dependencies": {
     "react": "^15.1.0",
     "react-dom": "^15.1.0",
-    "react-super-tab": "^1.0.8"
+    "react-super-tab": "^1.1.0"
   }
 }
