@@ -1,4 +1,4 @@
-import Tabs, { TabTitle, TabPanel } from 'react-super-tab';
+import Tabs, { TabTitle, TabPanel } from './src/Tabs';
 
 export default {
     Tabs,
