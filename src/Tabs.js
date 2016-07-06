@@ -1,16 +1,12 @@
-/**
- * react-super-tab
- * https://github.com/LukeLin/react-tab
- */
-
 import React, { Component, PropTypes } from 'react';
+import Base from './utils/Base';
 
-export default class Tabs extends Component {
+export default class Tabs extends Base {
     constructor(props, context) {
         super(props, context);
 
         this.state = {
-            selectedTab: null
+            selectedTab: props.defaultSelectedTab || null
         };
 
         this.firstTabLabel = null;
@@ -101,7 +97,8 @@ export class TabTitle extends Component {
     }
 
     componentDidMount() {
-        if (this.context.selectedTab === this.props.label || this.context.firstTabLabel === this.props.label) {
+        if (this.context.selectedTab === this.props.label ||
+            (!this.context.selectedTab && this.context.firstTabLabel === this.props.label)) {
             this.context.onSelect(this.props.label);
         }
     }
@@ -138,7 +135,6 @@ TabTitle.contextTypes = {
     activeStyle: PropTypes.object,
     selectedTab: PropTypes.string
 };
-Tabs.TabTitle = TabTitle;
 
 const styles = {
     visible: {
@@ -186,4 +182,3 @@ TabPanel.propTypes = {
 TabPanel.contextTypes = {
     selectedTab: PropTypes.string
 };
-Tabs.TabPanel = TabPanel;

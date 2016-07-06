@@ -28,13 +28,25 @@ if (!DEBUG) {
     );
 }
 
+function getPagesNames(dirPath) {
+    let filesNames = fs.readdirSync(dirPath);
+    let entries = {
+    };
+
+    for (let fileName of filesNames) {
+        entries[fileName.split('.').shift() || fileName] = [`${dirPath}/${fileName}`];
+    }
+
+    return entries;
+}
+
 module.exports = {
     target: 'web',
-    entry: './test.js',
+    entry: getPagesNames(__dirname + '/test'),
     output: {
-        path: './dist',
-        filename: DEBUG ? "./react-tab-test-debug.js" : "./react-tab-test-min.js",
-        chunkFilename: DEBUG ? "./react-tab-test-debug.js" : "./react-tab-test-min.js"
+        path: './demo/dist',
+        filename: DEBUG ? "./react-lui-test-debug.js" : "./react-lui-test-min.js",
+        chunkFilename: DEBUG ? "./react-lui-test-debug.js" : "./react-lui-test-min.js"
     },
 
     cache: true,
