@@ -45,8 +45,8 @@ module.exports = {
     entry: getPagesNames(__dirname + '/test'),
     output: {
         path: './demo/dist',
-        filename: DEBUG ? "./react-lui-test-debug.js" : "./react-lui-test-min.js",
-        chunkFilename: DEBUG ? "./react-lui-test-debug.js" : "./react-lui-test-min.js"
+        filename: DEBUG ? "./react-lui-[name]-test-debug.js" : "./react-lui-[name]-test-min.js",
+        chunkFilename: DEBUG ? "./react-lui-[name]-test-debug.js" : "./react-lui-[name]-test-min.js"
     },
 
     cache: true,
